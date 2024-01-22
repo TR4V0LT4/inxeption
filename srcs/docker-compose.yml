@@ -58,22 +58,6 @@ services:
       - inception
     restart: always
   
-  vsftpd:
-    build:
-      context: ./requirements/bonus/vsftpd/
-      dockerfile: Dockerfile
-      args:
-        FTP_USR: ${FTP_USR}
-        FTP_PWD: ${FTP_PWD}
-    container_name: vsftpd
-    ports:
-      - "21:21"
-    volumes:
-      - wp-volume:/var/www/
-    networks:
-     - inception
-    restart: always
-
   adminer:
     build:
       context: ./requirements/bonus/adminer/
@@ -86,6 +70,7 @@ services:
     networks:
      - inception
     restart: always
+  
 
 volumes:
   db-volume:
@@ -104,4 +89,3 @@ networks:
     inception:
         driver: bridge
 
-  #other volume
