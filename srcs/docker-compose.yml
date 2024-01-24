@@ -14,6 +14,8 @@ services:
       - ./requirements/nginx/conf/:/etc/nginx/http.d/
       - ./requirements/nginx/tools:/etc/nginx/ssl/
       -  wp-volume:/var/www/
+    networks:
+     - inception
     restart: always
   
   mariadb:
@@ -30,6 +32,8 @@ services:
       - "3306:3306"
     volumes:
       - db-volume:/var/lib/mysql
+    networks:
+     - inception
     restart: always
 
   wordpress:
@@ -46,7 +50,8 @@ services:
     restart: always
     volumes:
       - wp-volume:/var/www/
-    
+    networks:
+     - inception
   redis:
     build:
       context: ./requirements/bonus/redis/
