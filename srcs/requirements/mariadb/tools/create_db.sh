@@ -16,4 +16,5 @@ EOF
         # run init.sql
         /usr/bin/mysqld --user=mysql --bootstrap < /tmp/create_db.sql
         rm -f /tmp/create_db.sql
+        # sleep 10
 fi
