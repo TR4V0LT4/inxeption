@@ -1,6 +1,5 @@
 #!bin/sh
 
-
 apk --no-cache add curl
 apk add sudo
 apk add php-phar
@@ -8,7 +7,7 @@ rm -rf /var/cache/apk/*
 curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 chmod +x wp-cli.phar
 mv wp-cli.phar /usr/local/bin/wp
-
+chmod +x start.sh
 if [ ! -f "/var/www/wp-config.php" ]; then
 cat << EOF > /var/www/wp-config.php
 <?php

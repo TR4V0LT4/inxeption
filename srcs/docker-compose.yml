@@ -26,7 +26,7 @@ services:
         DB_NAME: ${DB_NAME}
         DB_USER: ${DB_USER}
         DB_PASS: ${DB_PASS}
-        DB_ROOT: ${DB_ROOT}
+        
     container_name: mariadb
     ports:
       - "3306:3306"
@@ -52,6 +52,13 @@ services:
       - wp-volume:/var/www/
     networks:
      - inception
+    environment:   # Move environment variables here
+      DB_NAME: ${DB_NAME}
+      DB_USER: ${DB_USER}
+      DB_PASS: ${DB_PASS}
+      DB_ROOT_USER: ${DB_ROOT_USER}
+      DB_ROOT_PASS : ${DB_ROOT_PASS}
+
   redis:
     build:
       context: ./requirements/bonus/redis/
